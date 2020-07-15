@@ -1,15 +1,14 @@
 <template>
   <v-card class="pa-3 text-center">
     <div class="headline">
-      Generate Bribing Key
+      Generate Valid Key
     </div>
     <v-card-text>
       <p>
-        I wish to generate a MACI keypair (0)
+        I wish to generate a MACI keypair (1)
       </p>
-
-      <p class="caption">
-        This key is used to submit invalid votes from bribes.
+      <p>
+        This key is used to submit your actual desired votes.
       </p>
     </v-card-text>
     <v-card-actions>
