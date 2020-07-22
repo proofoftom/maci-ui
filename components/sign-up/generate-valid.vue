@@ -7,7 +7,7 @@
       <p>
         I wish to generate a MACI keypair (1)
       </p>
-      <p>
+      <p class="caption">
         This key is used to submit your actual desired votes.
       </p>
     </v-card-text>
@@ -16,12 +16,7 @@
       <v-btn>
         Cancel
       </v-btn>
-      <v-btn
-        v-if="keysGenerated"
-        color="secondary"
-        to="vote"
-        @click="$store.commit('setKeys')"
-      >
+      <v-btn v-if="keysGenerated" color="secondary" @click="saveAndRedirect">
         Download
       </v-btn>
       <v-btn v-else color="primary" @click="keysGenerated = true">
@@ -36,6 +31,12 @@ export default {
   data() {
     return {
       keysGenerated: false
+    }
+  },
+  methods: {
+    saveAndRedirect() {
+      this.$store.commit('setKeys')
+      this.$nuxt.$router.push('/vote')
     }
   }
 }

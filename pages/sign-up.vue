@@ -20,9 +20,8 @@ export default {
     }
   },
   created() {
-    const vm = this
     this.$nuxt.$on('increment-sign-up', () => {
-      vm.step++
+      this.step++
     })
   }
 }

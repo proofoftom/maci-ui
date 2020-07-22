@@ -9,9 +9,13 @@
         <v-icon>mdi-github</v-icon>
       </v-btn>
     </v-app-bar>
-    <v-main>
-      <v-container>
-        <nuxt />
+    <v-main class="mb-16">
+      <v-container fill-height>
+        <v-row>
+          <v-col>
+            <nuxt />
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
   </v-app>
