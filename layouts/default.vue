@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <v-app-bar fixed app>
-      <v-btn to="/">
+      <v-btn @click="toggleAccess">
         <v-toolbar-title>MACI UI</v-toolbar-title>
       </v-btn>
       <v-spacer />
@@ -21,6 +21,16 @@
 export default {
   data() {
     return {}
+  },
+  methods: {
+    toggleAccess() {
+      this.$store.commit('setAccess', !this.$store.state.hasAccess)
+      if (this.$store.state.hasAccess) {
+        this.$nuxt.$router.push('sign-up')
+      } else {
+        this.$nuxt.$router.push('/')
+      }
+    }
   }
 }
 </script>

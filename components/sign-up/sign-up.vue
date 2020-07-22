@@ -1,7 +1,7 @@
 <template>
   <v-card class="pa-3 text-center">
     <div class="headline">
-      Generate Bribing Key
+      Generate Key for Bribes
     </div>
     <v-card-text>
       <p>
@@ -17,8 +17,15 @@
       <v-btn>
         Cancel
       </v-btn>
-      <v-btn color="primary">
-        Sign
+      <v-btn
+        v-if="keysGenerated"
+        color="secondary"
+        @click="$nuxt.$emit('increment-sign-up')"
+      >
+        Download
+      </v-btn>
+      <v-btn v-else color="primary" @click="keysGenerated = true">
+        Generate
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -28,7 +35,7 @@
 export default {
   data() {
     return {
-      nftToken: 'XYZ'
+      keysGenerated: false
     }
   }
 }

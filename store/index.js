@@ -1,10 +1,13 @@
 export const state = () => ({
-  authUser: false,
-  hasToken: false
+  hasKeys: false,
+  hasAccess: false
 })
 
 export const mutations = {
-  setToken(state) {
-    state.hasToken = true
+  setAccess(state, access) {
+    state.hasAccess = access
+  },
+  setKeys(state) {
+    state.hasKeys = true
   }
 }

@@ -16,8 +16,16 @@
       <v-btn>
         Cancel
       </v-btn>
-      <v-btn color="primary">
-        Sign
+      <v-btn
+        v-if="keysGenerated"
+        color="secondary"
+        to="vote"
+        @click="$store.commit('setKeys')"
+      >
+        Download
+      </v-btn>
+      <v-btn v-else color="primary" @click="keysGenerated = true">
+        Generate
       </v-btn>
     </v-card-actions>
   </v-card>
@@ -27,7 +35,7 @@
 export default {
   data() {
     return {
-      nftToken: 'XYZ'
+      keysGenerated: false
     }
   }
 }

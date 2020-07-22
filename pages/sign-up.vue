@@ -1,15 +1,29 @@
 <template>
   <v-layout justify-center my-3>
-    <SignUp />
+    <SignUp v-if="step === 1" />
+    <GenerateValid v-if="step === 2" />
   </v-layout>
 </template>
 
 <script>
 import SignUp from '~/components/sign-up/sign-up'
+import GenerateValid from '~/components/sign-up/generate-valid'
 
 export default {
   components: {
+    GenerateValid,
     SignUp
+  },
+  data() {
+    return {
+      step: 1
+    }
+  },
+  created() {
+    const vm = this
+    this.$nuxt.$on('increment-sign-up', () => {
+      vm.step++
+    })
   }
 }
 </script>

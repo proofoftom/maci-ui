@@ -5,7 +5,7 @@
     </div>
     <v-card-text>
       <p>
-        Please switch to an Ethereum account that owns an {{ nftToken }} NFT
+        Please switch to an Ethereum account that owns an {{ tokenSymbol }} NFT
         token
       </p>
     </v-card-text>
@@ -16,14 +16,8 @@
 export default {
   data() {
     return {
-      nftToken: 'XYZ'
+      tokenSymbol: 'ETHDEN'
     }
-  },
-  mounted() {
-    setTimeout(() => {
-      this.$store.commit('setToken')
-      this.$router.push('/sign-up')
-    }, 1000)
   }
 }
 </script>
