@@ -1,14 +1,17 @@
 <template>
   <v-layout justify-center my-3>
-    <SwitchWallet />
+    <ConnectWallet v-if="!$store.state.web3" />
+    <SwitchWallet v-else />
   </v-layout>
 </template>
 
 <script>
+import ConnectWallet from '~/components/sign-up/connect-wallet'
 import SwitchWallet from '~/components/sign-up/switch-wallet'
 
 export default {
   components: {
+    ConnectWallet,
     SwitchWallet
   }
 }

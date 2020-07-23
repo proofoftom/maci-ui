@@ -14,7 +14,7 @@
     <v-card-actions>
       <v-spacer />
       <v-btn>
-        Cancel
+        Upload
       </v-btn>
       <v-btn v-if="keysGenerated" color="secondary" @click="saveAndRedirect">
         Download
