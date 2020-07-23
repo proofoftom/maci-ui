@@ -19,7 +19,7 @@
       <v-btn v-if="keysGenerated" color="secondary" @click="saveAndRedirect">
         Download
       </v-btn>
-      <v-btn v-else color="primary" @click="keysGenerated = true">
+      <v-btn v-else color="primary" @click="generateKeys">
         Generate
       </v-btn>
     </v-card-actions>
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import { Keypair } from 'maci-domainobjs'
+
 export default {
   data() {
     return {
@@ -34,6 +36,10 @@ export default {
     }
   },
   methods: {
+    generateKeys() {
+      console.log(new Keypair())
+      this.keysGenerated = true
+    },
     saveAndRedirect() {
       this.$store.commit('setKeys')
       this.$nuxt.$router.push('/vote')

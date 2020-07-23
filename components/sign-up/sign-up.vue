@@ -24,7 +24,7 @@
       >
         Download
       </v-btn>
-      <v-btn v-else color="primary" @click="keysGenerated = true">
+      <v-btn v-else color="primary" @click="generateKeys">
         Generate
       </v-btn>
     </v-card-actions>
@@ -32,10 +32,18 @@
 </template>
 
 <script>
+import { Keypair } from 'maci-domainobjs'
+
 export default {
   data() {
     return {
       keysGenerated: false
+    }
+  },
+  methods: {
+    generateKeys() {
+      console.log(new Keypair())
+      this.keysGenerated = true
     }
   }
 }
