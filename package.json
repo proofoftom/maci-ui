@@ -17,7 +17,8 @@
     "maci-contracts": "^0.1.2",
     "maci-crypto": "^0.1.0",
     "maci-domainobjs": "^0.1.0",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "nuxt-vuex-localstorage": "^1.2.6"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
