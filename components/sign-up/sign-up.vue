@@ -32,33 +32,16 @@
 </template>
 
 <script>
-import { Keypair } from 'maci-domainobjs'
-import ethers from 'ethers'
-
 export default {
   data() {
     return {
-      keysGenerated: false,
-      nonce: 0 // TODO: Derive from previous key nonce
+      keysGenerated: false
     }
   },
   methods: {
     async generateKeys() {
-      const provider = new ethers.providers.Web3Provider(web3.currentProvider) // eslint-disable-line
-      const signer = provider.getSigner()
-
-      const signature = await signer.signMessage(
-        'Creating key pair at nonce: ' + this.nonce
-      )
-
-      const { pubKey, privKey } = new Keypair()
-
-      this.$store.commit('localStorage/setKeys', {
-        pubKey: pubKey.rawPubKey.toString(),
-        privKey: privKey.rawPrivKey.toString(),
-        salt: signature
-      })
-
+      const nonce = 0
+      await this.$store.dispatch('createKeypair', nonce)
       this.keysGenerated = true
     }
   }

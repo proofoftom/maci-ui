@@ -27,8 +27,6 @@
 </template>
 
 <script>
-import { Keypair } from 'maci-domainobjs'
-
 export default {
   data() {
     return {
@@ -36,8 +34,9 @@ export default {
     }
   },
   methods: {
-    generateKeys() {
-      console.log(new Keypair())
+    async generateKeys() {
+      const nonce = 1
+      await this.$store.dispatch('createKeypair', nonce)
       this.keysGenerated = true
     },
     saveAndRedirect() {

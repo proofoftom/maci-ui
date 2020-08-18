@@ -1,11 +1,11 @@
 export const state = () => ({
-  publicKey: null,
-  privateKey: null
+  pubKey: null,
+  privKey: null
 })
 
 export const mutations = {
   setKeys(state, keyPair) {
-    state.publicKey = keyPair.pubKey
-    state.privateKey = keyPair.privKey
+    state.pubKey = keyPair.pubKey
+    state.privKey = keyPair.privKey
   }
 }
