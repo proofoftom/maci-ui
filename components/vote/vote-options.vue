@@ -1,13 +1,20 @@
 <template>
   <v-layout justify-center>
-    <v-simple-table fixed-header height="300px" style="width: 500px">
+    <v-simple-table
+      fixed-header
+      height="300px"
+      style="max-width: 500px"
+      class="flex-grow-1"
+    >
       <template v-slot:default>
         <thead>
           <tr>
             <th class="text-left">
               Project
             </th>
-            <th></th>
+            <th class="text-center">
+              Set Votes
+            </th>
           </tr>
         </thead>
         <tbody>
