@@ -14,6 +14,7 @@
   "dependencies": {
     "@nuxtjs/dotenv": "^1.4.0",
     "ethers": "^5.0.7",
+    "file-saver": "^2.0.2",
     "maci-contracts": "^0.1.2",
     "maci-crypto": "^0.1.0",
     "maci-domainobjs": "^0.1.0",

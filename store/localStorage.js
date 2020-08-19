@@ -1,11 +1,19 @@
 export const state = () => ({
-  pubKey: null,
-  privKey: null
+  bribeKeys: {
+    pubKey: '',
+    privKey: ''
+  },
+  validKeys: {
+    pubKey: '',
+    privKey: ''
+  }
 })
 
 export const mutations = {
-  setKeys(state, keyPair) {
-    state.pubKey = keyPair.pubKey
-    state.privKey = keyPair.privKey
+  setBribeKeys(state, keyPair) {
+    state.bribeKeys = { ...keyPair }
+  },
+  setValidKeys(state, keyPair) {
+    state.validKeys = { ...keyPair }
   }
 }

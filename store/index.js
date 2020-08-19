@@ -1,4 +1,4 @@
-import ethers from 'ethers'
+// import ethers from 'ethers'
 import { Keypair } from 'maci-domainobjs'
 
 export const state = () => ({
@@ -20,20 +20,19 @@ export const actions = {
     }
     commit('setAccount', accounts[0])
   },
-  async createKeypair({ commit }, nonce) {
-    const provider = new ethers.providers.Web3Provider(this.$provider)
-    const signer = provider.getSigner()
+  createKeypair({ commit }, { /* nonce, */ type }) {
+    // const provider = new ethers.providers.Web3Provider(this.$provider)
+    // const signer = provider.getSigner()
 
-    const signature = await signer.signMessage(
-      'Creating key pair at nonce: ' + nonce
-    )
+    // const signature = await signer.signMessage(
+    // 'Creating key pair at nonce: ' + nonce
+    // )
 
     const { pubKey, privKey } = new Keypair()
 
-    commit('localStorage/setKeys', {
-      pubKey: pubKey.rawPubKey.toString(),
-      privKey: privKey.rawPrivKey.toString(),
-      salt: signature
+    commit(`localStorage/${type}`, {
+      pubKey: pubKey.serialize(),
+      privKey: privKey.serialize()
     })
   }
 }
