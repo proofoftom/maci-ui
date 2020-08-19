@@ -1,6 +1,6 @@
 <template>
   <v-layout justify-center my-3>
-    <ConnectWallet v-if="!$store.state.web3" />
+    <ConnectWallet v-if="!$store.state.account" />
     <SwitchWallet v-else />
   </v-layout>
 </template>

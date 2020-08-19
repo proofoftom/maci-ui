@@ -10,13 +10,7 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn
-        color="primary"
-        @click="
-          $store.dispatch('connectWallet')
-          $nuxt.$router.push('/sign-up')
-        "
-      >
+      <v-btn color="primary" @click="connect">
         Connect
       </v-btn>
     </v-card-actions>
@@ -25,8 +19,11 @@
 
 <script>
 export default {
-  data() {
-    return {}
+  methods: {
+    async connect() {
+      await this.$store.dispatch('connectWallet')
+      this.$nuxt.$router.push('/sign-up')
+    }
   }
 }
 </script>

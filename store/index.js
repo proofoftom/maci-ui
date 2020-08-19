@@ -2,17 +2,26 @@ import ethers from 'ethers'
 import { Keypair } from 'maci-domainobjs'
 
 export const state = () => ({
-  hasKeys: false,
+  account: '',
   hasAccess: false,
-  web3: false
+  hasKeys: false
 })
 
 export const actions = {
-  connectWallet({ commit }) {
-    commit('setWallet')
+  async connectWallet({ commit }) {
+    if (!this.$provider) {
+      return
+    }
+    let accounts
+    try {
+      accounts = await this.$provider.request({ method: 'eth_requestAccounts' })
+    } catch (error) {
+      return
+    }
+    commit('setAccount', accounts[0])
   },
-  async createKeypair(nonce) {
-    const provider = new ethers.providers.Web3Provider(web3.currentProvider) // eslint-disable-line
+  async createKeypair({ commit }, nonce) {
+    const provider = new ethers.providers.Web3Provider(this.$provider)
     const signer = provider.getSigner()
 
     const signature = await signer.signMessage(
@@ -21,7 +30,7 @@ export const actions = {
 
     const { pubKey, privKey } = new Keypair()
 
-    this.$store.commit('localStorage/setKeys', {
+    commit('localStorage/setKeys', {
       pubKey: pubKey.rawPubKey.toString(),
       privKey: privKey.rawPrivKey.toString(),
       salt: signature
@@ -36,7 +45,7 @@ export const mutations = {
   setKeys(state) {
     state.hasKeys = true
   },
-  setWallet(state) {
-    state.web3 = true
+  setAccount(state, account) {
+    state.account = account
   }
 }
