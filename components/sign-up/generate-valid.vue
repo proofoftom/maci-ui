@@ -1,20 +1,30 @@
 <template>
   <v-card class="pa-3 text-center">
     <div class="headline">
-      Generate Key for Voting
+      Key for voting
     </div>
     <v-card-text>
       <p>I wish to generate a MACI keypair ({{ nonce }})</p>
       <p class="caption">
-        This key is used to submit your actual desired votes.
+        This key is used to submit your valid votes.
       </p>
     </v-card-text>
     <v-card-actions>
       <v-spacer />
-      <v-btn v-if="!keysGenerated">
-        Upload
-      </v-btn>
-      <v-btn v-if="!keysGenerated" color="primary" @click="generateKeys">
+      <v-file-input
+        v-if="!keysGenerated"
+        id="uploadedKey"
+        hint="Upload your saved private key"
+        label="Upload"
+        placeholder="maci-key-0.txt"
+        rounded
+        persistent-hint
+      />
+      <v-btn
+        v-if="!fileUploaded && !keysGenerated"
+        color="primary"
+        @click="generateKeys"
+      >
         Generate
       </v-btn>
       <v-btn v-else color="secondary" @click="downloadPrivateKey">
@@ -30,6 +40,7 @@ import saveAs from 'file-saver'
 export default {
   data() {
     return {
+      fileUploaded: false,
       keysGenerated: false,
       nonce: 1 // TODO: Move to Vuex Localstorage
     }
