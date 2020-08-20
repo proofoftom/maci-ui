@@ -19,7 +19,8 @@
     "maci-crypto": "^0.1.0",
     "maci-domainobjs": "^0.1.0",
     "nuxt": "^2.0.0",
-    "nuxt-vuex-localstorage": "^1.2.6"
+    "nuxt-vuex-localstorage": "^1.2.6",
+    "vue-fragment": "^1.5.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",

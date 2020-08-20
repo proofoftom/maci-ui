@@ -30,7 +30,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/provider.js'],
+  plugins: ['~/plugins/provider.js', '~/plugins/vue-fragment'],
   /*
    ** Nuxt.js dev-modules
    */
