@@ -1,5 +1,5 @@
 <template>
-  <v-layout justify-center>
+  <v-layout justify-center my-3>
     <VoteOptions />
   </v-layout>
 </template>
