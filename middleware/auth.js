@@ -9,9 +9,9 @@ export default function({ store, redirect, route }) {
     store.state.account &&
     store.state.hasAccess && // Has the access NFT
     !store.state.localStorage.validKeys.privKey && // But doesn't have eddsa keys
-    route.name !== 'sign-up' // And isn't on the sign-up page
+    route.name !== 'get-keys' // And isn't on the get-keys page
   ) {
-    redirect('/sign-up')
+    redirect('/get-keys')
   } else if (
     store.state.account &&
     store.state.hasAccess && // Has the access NFT

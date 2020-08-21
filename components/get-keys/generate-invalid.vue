@@ -64,8 +64,8 @@ export default {
 
       saveAs(blob, filename)
 
-      // Move to next step in sign-up
-      this.$nuxt.$emit('increment-sign-up')
+      // Move to next step in get-keys
+      this.$nuxt.$emit('increment-get-keys')
     }
   }
 }

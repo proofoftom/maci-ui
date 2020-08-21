@@ -22,7 +22,7 @@ export default {
   methods: {
     async connect() {
       await this.$store.dispatch('connectWallet')
-      this.$nuxt.$router.push('/sign-up')
+      this.$nuxt.$router.push('/get-keys')
     }
   }
 }

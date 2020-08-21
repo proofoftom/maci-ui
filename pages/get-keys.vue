@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import SignUp from '~/components/sign-up/sign-up'
-import GenerateValid from '~/components/sign-up/generate-valid'
+import SignUp from '~/components/get-keys/generate-invalid'
+import GenerateValid from '~/components/get-keys/generate-valid'
 
 export default {
   components: {
@@ -20,7 +20,7 @@ export default {
     }
   },
   created() {
-    this.$nuxt.$on('increment-sign-up', () => {
+    this.$nuxt.$on('increment-get-keys', () => {
       this.step++
     })
   }

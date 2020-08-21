@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import ConnectWallet from '~/components/sign-up/connect-wallet'
-import SwitchWallet from '~/components/sign-up/switch-wallet'
+import ConnectWallet from '~/components/get-keys/connect-wallet'
+import SwitchWallet from '~/components/get-keys/switch-wallet'
 
 export default {
   components: {

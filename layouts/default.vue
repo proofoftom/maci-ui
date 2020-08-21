@@ -30,7 +30,7 @@ export default {
     toggleAccess() {
       this.$store.commit('setAccess', !this.$store.state.hasAccess)
       if (this.$store.state.hasAccess) {
-        this.$nuxt.$router.push('sign-up')
+        this.$nuxt.$router.push('get-keys')
       } else {
         this.$nuxt.$router.push('/')
       }
